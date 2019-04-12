@@ -112,6 +112,7 @@ document.addEventListener("click", (e) => {
       for (let item in tab) {
         props += `${ item } = ${ tab[item] } \n`;
       }
+      browser.runtime.sendMessage({"method": "getHistoryForTab", "arguments": [tab.id]});
       alert(props);
     });
   }
